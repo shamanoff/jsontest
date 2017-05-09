@@ -1,0 +1,11 @@
+<div  *ngFor="let user of users; let i = index" class="thumbnail text-center">
+  <img src="{{user.userpic}}" alt="userpic" class="userpic">
+  <h4>{{user.first_name}} {{user.last_name}}</h4>
+  <h6>{{user.job}}</h6>
+  <h6>{{user.email}}</h6>
+  <h6>{{user.phone}}</h6>
+  <hr>
+  <button type="button" class="button">Delete</button>
+
+</div>
+

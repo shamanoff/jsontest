@@ -1,0 +1,17 @@
+:host{
+
+  display: block;
+
+}
+
+.thumbnail{
+  margin: 2%;
+  width:46%;
+  padding: 2rem;
+}
+
+.userpic{
+  border-radius: 50%;
+  border: solid 1px gainsboro;
+  margin-bottom: 2rem;
+}

@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Http} from "@angular/http";
-import {Observable} from 'rxjs/Rx';
+import {Http} from '@angular/http';
 import 'rxjs/add/operator/map';
 
 @Injectable()
@@ -10,7 +9,7 @@ export class DataService {
   }
 
   fetchData() {
-    return this.http.get('../assets/data.json').map(
+    return this.http.get('../assets/users.json').map(
       (res) => res.json()
     );
 
