@@ -1,6 +1,7 @@
-import {Component, HostBinding, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {DataService} from '../data-service.service';
 import {User} from '../user';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-user-list',
@@ -24,5 +25,12 @@ export class UserListComponent implements OnInit {
     );
   }
 
+  removeUserByIndex(index: number){
+    console.log(index);
+
+    this.users.splice(index, 1);
+
+    console.log(this.users)
+  }
 
 }
