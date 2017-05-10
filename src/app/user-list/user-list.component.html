@@ -1,4 +1,29 @@
-<div  *ngFor="let user of users; let i = index" class="thumbnail text-center">
+<nav class="top-bar topbar-responsive">
+  <div class="top-bar-title">
+    <a class="topbar-responsive-logo" href="#"><strong>Filter Users: </strong></a>
+  </div>
+  <div class="top-bar-left">
+
+    <input type="text" [(ngModel)]="term" id="filter">
+
+  </div>
+  <div id="topbar-responsive" class="topbar-responsive-links">
+
+
+    <div class="top-bar-right">
+      <ul class="menu simple vertical medium-horizontal">
+        <li><a href="#">Reset</a></li>
+
+        <li>
+          <button type="button" class="button hollow topbar-responsive-button">Add User</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="row">
+<div class="small-12 columns">
+<div  *ngFor="let user of users | filter:term; let i = index" class="thumbnail text-center">
   <img src="{{user.userpic}}" alt="userpic" class="userpic">
   <h4>{{user.first_name}} {{user.last_name}}</h4>
   <p>{{user.job}}</p>
@@ -8,4 +33,5 @@
   <button type="button" class="button" (click)="removeUserByIndex(i)">Delete</button>
 
 </div>
-
+</div>
+</div>

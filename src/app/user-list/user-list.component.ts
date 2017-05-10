@@ -1,13 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import {DataService} from '../data-service.service';
 import {User} from '../user';
-import * as _ from 'lodash';
+import {FilterPipe} from '../filter.pipe';
 
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.css'],
-  providers: [DataService]
+  providers: [DataService, FilterPipe],
 
 })
 export class UserListComponent implements OnInit {
@@ -25,12 +25,12 @@ export class UserListComponent implements OnInit {
     );
   }
 
-  removeUserByIndex(index: number){
-    console.log(index);
+  removeUserByIndex(index: number) {
+    // console.log(index);
 
     this.users.splice(index, 1);
 
-    console.log(this.users)
+    // console.log(this.users)
   }
 
 }
