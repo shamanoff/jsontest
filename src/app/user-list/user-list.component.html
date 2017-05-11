@@ -16,22 +16,75 @@
       <ul class="menu simple vertical medium-horizontal">
         <li><a href="#">Sort by: </a></li>
         <li>
-        <select name="sorting" [(ngModel)]="">
-          <option >Choose One</option>
-          <option >First Name</option>
-          <option >Last Name</option>
+        <select name="sorting"  (change)="sortBy($event.target.value)">
+          <option value="0" >Choose One</option>
+          <option value="first_name">First Name</option>
+          <option value="last_name">Last Name</option>
+          <option value="email">Email</option>
+          <option value="phone">Phone</option>
+
         </select>
         </li>
         <li><a href="#">Reset</a></li>
 
 
         <li>
-          <button type="button" class="button hollow topbar-responsive-button">Add User</button>
+          <button  type="button" class="button hollow topbar-responsive-button">Add User</button>
         </li>
       </ul>
     </div>
   </div>
 </nav>
+
+<div class="row column">
+  <div class="small-12">
+    <div>
+      <h3 class="float-left">Add New User</h3>
+      <i class="float-right fa fa-times" ></i>
+    </div>
+  </div>
+</div>
+<div class="row column">
+  <div class="small-12 columns">
+     <form class="formAdd">
+      <div class="row">
+        <div class="small-4 columns">
+          <label  class="text-right middle">First Name</label>
+        </div>
+        <div class="small-4 columns">
+          <input type="text" placeholder="">
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-4 columns">
+          <label  class="text-right middle">Last Name</label>
+        </div>
+        <div class="small-4 columns">
+          <input type="text" placeholder="">
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-4 columns">
+          <label  class="text-right middle">Email</label>
+        </div>
+        <div class="small-4 columns">
+          <input type="text" placeholder="">
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-4 columns">
+          <label  class="text-right middle">Phone</label>
+        </div>
+        <div class="small-4 columns">
+          <input type="text" placeholder="">
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>
+
+
 <div class="row">
 <div class="small-12 columns">
 <div  *ngFor=" let user of users | filter : term; let i = index;" class="thumbnail text-center">

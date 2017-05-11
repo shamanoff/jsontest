@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {DataService} from '../data-service.service';
 import {User} from '../user';
-import * as _ from "lodash";
+import * as _ from 'lodash';
 
 
 @Component({
@@ -13,9 +13,9 @@ import * as _ from "lodash";
 })
 export class UserListComponent implements OnInit {
 
-  sortParams: string[] = ['First Name', 'Last Name', 'E-mail'];
   users: User[] = [];
-  term: string = '';
+   reUsers: User[] = [];
+  term = '';
 
   constructor(private dataService: DataService) {
   }
@@ -25,6 +25,8 @@ export class UserListComponent implements OnInit {
       // data => console.log(data)
       (data) => this.users = data
     );
+
+
   }
 
   removeUserByIndex(index: number) {
@@ -32,12 +34,25 @@ export class UserListComponent implements OnInit {
 
     this.users.splice(index, 1);
 
-    console.log(this.users)
+    console.log(this.users);
   }
 
-  removeUserByName(name: string){
+  removeUserByName(name: string) {
     console.log(name);
     _.remove(this.users, {first_name: name});
   }
 
+
+  sortBy(prop: string) {
+    if (prop !== '0') {
+      this.users = _.sortBy(this.users, prop);
+
+    } else  {this.dataService.fetchData().subscribe(
+      (data) => this.users = data
+
+    ); }
+
+
+
+  }
 }
