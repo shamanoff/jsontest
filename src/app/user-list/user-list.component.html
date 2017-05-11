@@ -11,8 +11,19 @@
 
 
     <div class="top-bar-right">
+
+
       <ul class="menu simple vertical medium-horizontal">
+        <li><a href="#">Sort by: </a></li>
+        <li>
+        <select name="sorting" [(ngModel)]="">
+          <option >Choose One</option>
+          <option >First Name</option>
+          <option >Last Name</option>
+        </select>
+        </li>
         <li><a href="#">Reset</a></li>
+
 
         <li>
           <button type="button" class="button hollow topbar-responsive-button">Add User</button>

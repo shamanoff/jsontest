@@ -13,6 +13,7 @@ import * as _ from "lodash";
 })
 export class UserListComponent implements OnInit {
 
+  sortParams: string[] = ['First Name', 'Last Name', 'E-mail'];
   users: User[] = [];
   term: string = '';
 
