@@ -23,14 +23,15 @@
 </nav>
 <div class="row">
 <div class="small-12 columns">
-<div  *ngFor="let i = index; let user of users | filter : term; " class="thumbnail text-center">
+<div  *ngFor=" let user of users | filter : term; let i = index;" class="thumbnail text-center">
   <img src="{{user.userpic}}" alt="userpic" class="userpic">
   <h4>{{user.first_name}} {{user.last_name}}</h4>
   <p>{{user.job}}</p>
   <p>{{user.email}}</p>
   <p>{{user.phone}}</p>
   <hr>
-  <button type="button" class="button" (click)="removeUserByIndex(i)">Delete</button>
+  <!--<button type="button" class="button" (click)="removeUserByIndex(i)">Delete</button>-->
+  <button type="button" class="button" (click)="removeUserByName(user.first_name)">Delete</button>
 
 </div>
 </div>
