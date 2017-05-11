@@ -36,7 +36,6 @@ export class UserListComponent implements OnInit {
 
   removeUserByName(name: string){
     console.log(name);
-    console.log(this.users);
     _.remove(this.users, {first_name: name});
   }
 
