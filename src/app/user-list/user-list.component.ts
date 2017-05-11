@@ -1,19 +1,18 @@
 import {Component, OnInit} from '@angular/core';
 import {DataService} from '../data-service.service';
 import {User} from '../user';
-import {FilterPipe} from '../filter.pipe';
 
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.css'],
-  providers: [DataService, FilterPipe],
+  providers: [DataService]
 
 })
 export class UserListComponent implements OnInit {
 
   users: User[] = [];
-
+  term: string = '';
 
   constructor(private dataService: DataService) {
   }
@@ -26,11 +25,11 @@ export class UserListComponent implements OnInit {
   }
 
   removeUserByIndex(index: number) {
-    // console.log(index);
+    console.log(index);
 
     this.users.splice(index, 1);
 
-    // console.log(this.users)
+    console.log(this.users)
   }
 
 }

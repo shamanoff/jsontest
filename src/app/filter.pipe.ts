@@ -1,4 +1,5 @@
 import {Pipe, PipeTransform} from '@angular/core';
+import {isUndefined} from "util";
 
 @Pipe({
   name: 'filter'
@@ -6,14 +7,27 @@ import {Pipe, PipeTransform} from '@angular/core';
 export class FilterPipe implements PipeTransform {
 
   transform(users: any, term: any): any {
-
     // check if search is undefined
-    if (term === undefined) return users;
+    if (term === isUndefined) return users;
 
     // return updated users array
     return users.filter(function (user) {
-      return user.name.toLowerCase().includes(term.toLowerCase());
+      return user.first_name.toLowerCase().includes(term.toLowerCase()) || user.last_name.toLowerCase().includes(term.toLowerCase());
     });
   }
+
+/*transform(value: any, term: string): any {
+  if(value.length === 0){
+    return value;
+  }
+  const resultArray = [];
+
+  for(const item of value){
+    if(item.first_name.toLowerCase().includes(term.toLocaleLowerCase()) || item.last_name.toLowerCase().includes(term.toLocaleLowerCase()) ){
+      resultArray.push(item);
+    }
+  }
+  return resultArray;
+}*/
 
 }
