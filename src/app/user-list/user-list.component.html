@@ -29,17 +29,27 @@
 
 
         <li>
-          <button data-open="addingmodal" type="button" class="button hollow topbar-responsive-button">Add User</button>
+          <button  type="button" class="button hollow topbar-responsive-button" (click)="onOpen()">Add User</button>
         </li>
       </ul>
     </div>
   </div>
 </nav>
 
-<div class="" id="addingmodal" >
-  <h1>Add New User</h1>
+<div class="adding " [class.hidden]="isOpen">
+  <div class="row ">
 
+  <div class="small-11 columns">
+    <h2>Add New User</h2>
+  </div>
+    <div class="small-1 columns">
+      <i style="cursor: pointer;" class="fa fa-times" aria-hidden="true" (click)="onClose()"></i>
+    </div>
+  </div>
 
+  <div class="row ">
+
+    <div class="small-12 large-8 large-offset-2 columns">
     <div class="row">
       <div class="small-4 columns">
         <label  class="text-right middle">First Name</label>
@@ -73,15 +83,18 @@
       </div>
     </div>
     <div class="row">
+      <div class="small-8 large-offset-4 columns">
       <button type="button" class="button" (click)="addUser()">Add User</button>
+      </div>
     </div>
 
+    </div>
+  </div>
 
 
-  <button class="close-button" data-close aria-label="Close modal" type="button">
-    <span aria-hidden="true">&times;</span>
-  </button>
 </div>
+
+
 
 
 

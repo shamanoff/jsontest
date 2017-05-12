@@ -13,7 +13,7 @@ import * as _ from 'lodash';
 })
 export class UserListComponent implements OnInit {
 
-
+  isOpen = true;
   addedUser: newUser;
   users: User[] = [];
   // reUsers: User[] = [];
@@ -75,6 +75,15 @@ export class UserListComponent implements OnInit {
     }
   }
 
+  onOpen(){
+    this.isOpen = false;
+    console.log(this.isOpen);
+  }
+
+  onClose(){
+    this.isOpen = true;
+    console.log(this.isOpen);
+  }
 }
 
 class newUser {
