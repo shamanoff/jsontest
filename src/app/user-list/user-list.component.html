@@ -25,64 +25,66 @@
 
         </select>
         </li>
-        <li><a href="#">Reset</a></li>
+        <li><a >Reset</a></li>
 
 
         <li>
-          <button  type="button" class="button hollow topbar-responsive-button">Add User</button>
+          <button data-open="addingmodal" type="button" class="button hollow topbar-responsive-button">Add User</button>
         </li>
       </ul>
     </div>
   </div>
 </nav>
 
-<div class="row column">
-  <div class="small-12">
-    <div>
-      <h3 class="float-left">Add New User</h3>
-      <i class="float-right fa fa-times" ></i>
-    </div>
-  </div>
-</div>
-<div class="row column">
-  <div class="small-12 columns">
-     <form class="formAdd">
-      <div class="row">
-        <div class="small-4 columns">
-          <label  class="text-right middle">First Name</label>
-        </div>
-        <div class="small-4 columns">
-          <input type="text" placeholder="">
-        </div>
-      </div>
-      <div class="row">
-        <div class="small-4 columns">
-          <label  class="text-right middle">Last Name</label>
-        </div>
-        <div class="small-4 columns">
-          <input type="text" placeholder="">
-        </div>
-      </div>
-      <div class="row">
-        <div class="small-4 columns">
-          <label  class="text-right middle">Email</label>
-        </div>
-        <div class="small-4 columns">
-          <input type="text" placeholder="">
-        </div>
-      </div>
-      <div class="row">
-        <div class="small-4 columns">
-          <label  class="text-right middle">Phone</label>
-        </div>
-        <div class="small-4 columns">
-          <input type="text" placeholder="">
-        </div>
-      </div>
-    </form>
+<div class="" id="addingmodal" >
+  <h1>Add New User</h1>
 
-  </div>
+
+    <div class="row">
+      <div class="small-4 columns">
+        <label  class="text-right middle">First Name</label>
+      </div>
+      <div class="small-4 columns">
+        <input [(ngModel)]="addedUser.first_name" type="text" placeholder="">
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-4 columns">
+        <label  class="text-right middle">Last Name</label>
+      </div>
+      <div class="small-4 columns">
+        <input [(ngModel)]="addedUser.last_name"type="text" placeholder="">
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-4 columns">
+        <label  class="text-right middle">Email</label>
+      </div>
+      <div class="small-4 columns">
+        <input [(ngModel)]="addedUser.email"type="text" placeholder="">
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-4 columns">
+        <label  class="text-right middle">Phone</label>
+      </div>
+      <div class="small-4 columns">
+        <input [(ngModel)]="addedUser.phone"type="text" placeholder="">
+      </div>
+    </div>
+    <div class="row">
+      <button type="button" class="button" (click)="addUser()">Add User</button>
+    </div>
+
+
+
+  <button class="close-button" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
 </div>
+
+
+
 
 
 <div class="row">

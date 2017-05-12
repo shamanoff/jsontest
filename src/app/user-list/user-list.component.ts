@@ -13,11 +13,16 @@ import * as _ from 'lodash';
 })
 export class UserListComponent implements OnInit {
 
+
+  addedUser: newUser;
   users: User[] = [];
-   reUsers: User[] = [];
+  // reUsers: User[] = [];
   term = '';
 
-  constructor(private dataService: DataService) {
+  constructor(private dataService: DataService
+
+  ) {
+    this.addedUser = new newUser();
   }
 
   ngOnInit() {
@@ -29,13 +34,13 @@ export class UserListComponent implements OnInit {
 
   }
 
-  removeUserByIndex(index: number) {
+/*  removeUserByIndex(index: number) {
     console.log(index);
 
     this.users.splice(index, 1);
 
     console.log(this.users);
-  }
+  }*/
 
   removeUserByName(name: string) {
     console.log(name);
@@ -47,12 +52,37 @@ export class UserListComponent implements OnInit {
     if (prop !== '0') {
       this.users = _.sortBy(this.users, prop);
 
-    } else  {this.dataService.fetchData().subscribe(
-      (data) => this.users = data
-
-    ); }
-
-
-
+    } else {
+      this.dataService.fetchData().subscribe(
+        (data) => this.users = data
+      );
+    }
   }
+
+  addUser() {
+    if (this.addedUser) {
+      const entry = {
+        'id': this.addedUser.id,
+        'first_name': this.addedUser.first_name,
+        'last_name': this.addedUser.last_name,
+        'job': this.addedUser.job,
+        'email': this.addedUser.email,
+        'phone': this.addedUser.phone,
+        'userpic': this.addedUser.userpic
+      };
+      this.users.push(entry);
+      console.log(this.users);
+    }
+  }
+
+}
+
+class newUser {
+  id?: number;
+  first_name?: string;
+  last_name?: string;
+  job?: string;
+  email?: string;
+  phone?: string;
+  userpic?: string;
 }
