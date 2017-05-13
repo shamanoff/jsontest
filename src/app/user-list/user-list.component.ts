@@ -71,7 +71,13 @@ export class UserListComponent implements OnInit {
         'userpic': this.addedUser.userpic
       };
       this.users.push(entry);
-      console.log(this.users);
+
+      this.addedUser.first_name = '';
+      this.addedUser.last_name = '';
+      this.addedUser.job = '';
+      this.addedUser.email = '';
+      this.addedUser.phone = '';
+      this.addedUser.userpic = '';
     }
   }
 

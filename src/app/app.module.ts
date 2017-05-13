@@ -6,12 +6,14 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { FilterPipe } from './filter.pipe';
+import { ReversePipe } from './reverse.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserListComponent,
-    FilterPipe
+    FilterPipe,
+    ReversePipe
   ],
   imports: [
     BrowserModule,

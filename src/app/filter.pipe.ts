@@ -17,18 +17,6 @@ export class FilterPipe implements PipeTransform {
     });
   }
 
-/*transform(value: any, term: string): any {
-  if(value.length === 0){
-    return value;
-  }
-  const resultArray = [];
 
-  for(const item of value){
-    if(item.first_name.toLowerCase().includes(term.toLocaleLowerCase()) || item.last_name.toLowerCase().includes(term.toLocaleLowerCase()) ){
-      resultArray.push(item);
-    }
-  }
-  return resultArray;
-}*/
 
 }
