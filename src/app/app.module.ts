@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { FilterPipe } from './filter.pipe';
 import { ReversePipe } from './reverse.pipe';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ReversePipe } from './reverse.pipe';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

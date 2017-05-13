@@ -2,13 +2,17 @@ import {Component, OnInit} from '@angular/core';
 import {DataService} from '../data-service.service';
 import {User} from '../user';
 import * as _ from 'lodash';
+import {slideTrigger} from '../slideTrigger';
 
 
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.css'],
-  providers: [DataService]
+  providers: [DataService],
+  animations: [
+    slideTrigger
+  ]
 
 })
 export class UserListComponent implements OnInit {
