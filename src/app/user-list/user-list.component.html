@@ -16,121 +16,70 @@
       <ul class="menu simple vertical medium-horizontal">
         <li><a href="#">Sort by: </a></li>
         <li>
-        <select name="sorting"  (change)="sortBy($event.target.value)">
-          <option value="0" >Choose One</option>
-          <option value="first_name">First Name</option>
-          <option value="last_name">Last Name</option>
-          <option value="email">Email</option>
-          <option value="phone">Phone</option>
+          <select name="sorting" (change)="sortBy($event.target.value)">
+            <option value="0">Choose One</option>
+            <option value="first_name">First Name</option>
+            <option value="last_name">Last Name</option>
+            <option value="email">Email</option>
+            <option value="phone">Phone</option>
 
-        </select>
+          </select>
         </li>
-        <li><a >Reset</a></li>
+        <li><a>Reset</a></li>
 
 
         <li>
-          <button  type="button" class="button hollow topbar-responsive-button" (click)="onOpen()">Add User</button>
+          <button type="button" class="button hollow topbar-responsive-button" (click)="onOpen()">Add User</button>
         </li>
       </ul>
     </div>
   </div>
 </nav>
 
-<div class="adding " [class.hidden]="isOpen" [@slideDown]="isOpen ? 'default' : 'open'">
-  <div class="row " >
-
-  <div class="small-11 columns">
-    <h2>Add New User</h2>
-  </div>
-    <div class="small-1 columns">
-      <i style="cursor: pointer;" class="fa fa-times" aria-hidden="true" (click)="onClose()"></i>
-    </div>
+<!--<div class="adding " [class.hidden]="isOpen" [@slideDown]="isOpen ? 'default' : 'open'">-->
+<div class="adding " [@slideDown]="isOpen ? 'default' : 'open'">
+  <div class="row">
+    <div class="small-11 columns"><h2>Add New User</h2></div>
+    <div class="small-1 columns text-right"><i style="cursor: pointer;" class="fa fa-times" aria-hidden="true" (click)="onClose()"></i></div>
   </div>
 
   <div class="row ">
+    <div class="small-12 large-6 columns">
+    <label >First Name</label>
+    <input [(ngModel)]="addedUser.first_name" type="text" placeholder="">
+    <label >Last Name</label>
+    <input [(ngModel)]="addedUser.last_name" type="text" placeholder="">
+    <label >Job</label>
+    <input [(ngModel)]="addedUser.job" type="text" placeholder="">
+    </div>
+    <div class="small-12 large-6 columns">
+    <label >Email</label>
+    <input [(ngModel)]="addedUser.email" type="text" placeholder="">
+    <label >Phone</label>
+    <input [(ngModel)]="addedUser.phone" type="text" placeholder="">
+    <label >Userpic</label>
+    <input [(ngModel)]="addedUser.userpic" type="text" placeholder="">
+      <button type="button " class="button addbutton" (click)="addUser()">Add User</button>
 
-    <div class="small-12 large-8 large-offset-2 columns">
-    <div class="row">
-      <div class="small-4 columns">
-        <label  class="text-right middle">First Name</label>
-      </div>
-      <div class="small-4 columns">
-        <input [(ngModel)]="addedUser.first_name" type="text" placeholder="">
-      </div>
     </div>
 
-      <div class="row">
-        <div class="small-4 columns">
-          <label  class="text-right middle">Last Name</label>
-        </div>
-        <div class="small-4 columns">
-          <input [(ngModel)]="addedUser.last_name" type="text" placeholder="">
-        </div>
-      </div>
-    <div class="row">
-      <div class="small-4 columns">
-        <label  class="text-right middle">Job</label>
-      </div>
-      <div class="small-4 columns">
-        <input [(ngModel)]="addedUser.job"type="text" placeholder="">
-      </div>
-    </div>
 
-      <div class="row">
-      <div class="small-4 columns">
-        <label  class="text-right middle">Email</label>
-      </div>
-      <div class="small-4 columns">
-        <input [(ngModel)]="addedUser.email"type="text" placeholder="">
-      </div>
-    </div>
+  </div>
+</div>
 
-      <div class="row">
-        <div class="small-4 columns">
-          <label  class="text-right middle">Phone</label>
-        </div>
-        <div class="small-4 columns">
-          <input [(ngModel)]="addedUser.phone"type="text" placeholder="">
-        </div>
-      </div>
-      <div class="row">
-        <div class="small-4 columns">
-          <label  class="text-right middle">Userpic</label>
-        </div>
-        <div class="small-4 columns">
-          <input [(ngModel)]="addedUser.userpic"type="text" placeholder="">
-        </div>
-      </div>
-      <div class="row">
-      <div class="small-8 large-offset-4 columns">
-      <button type="button" class="button" (click)="addUser()">Add User</button>
-      </div>
-    </div>
 
+  <div class="row" [@slideList]="isOpen ? 'up' : 'down'">
+    <div class="small-12 columns">
+      <div *ngFor=" let user of users  | filter : term | reverse" class="thumbnail text-center">
+        <img src="{{user.userpic}}" alt="userpic" class="userpic" width="100px" height="auto">
+        <h4>{{user.first_name}} {{user.last_name}}</h4>
+        <p>{{user.job}}</p>
+        <p>{{user.email}}</p>
+        <p>{{user.phone}}</p>
+        <hr>
+        <!--<button type="button" class="button" (click)="removeUserByIndex(i)">Delete</button>-->
+        <button type="button" class="button" (click)="removeUserByName(user.first_name)">Delete</button>
+
+      </div>
     </div>
   </div>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="row">
-<div class="small-12 columns">
-<div  *ngFor=" let user of users  | filter : term | reverse" class="thumbnail text-center">
-  <img src="{{user.userpic}}" alt="userpic" class="userpic" width="100px" height="auto">
-  <h4>{{user.first_name}} {{user.last_name}}</h4>
-  <p>{{user.job}}</p>
-  <p>{{user.email}}</p>
-  <p>{{user.phone}}</p>
-  <hr>
-  <!--<button type="button" class="button" (click)="removeUserByIndex(i)">Delete</button>-->
-  <button type="button" class="button" (click)="removeUserByName(user.first_name)">Delete</button>
-
-</div>
-</div>
-</div>

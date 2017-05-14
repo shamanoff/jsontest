@@ -21,6 +21,8 @@
 .topbar-responsive {
   background: #2c3840;
   padding: 1rem 1.5rem;
+  z-index:2;
+  position: relative;
 }
 
 .topbar-responsive .topbar-responsive-logo {
@@ -153,9 +155,15 @@
   margin-top: 1rem;
 }
 .adding{
-  background-color: gainsboro;
+  /*display: none;*/
+  background-color: #d7e0e7;
   padding: 2rem;
+  z-index:1;
+  position: relative;
 }
 .hidden{
   display: none;
+}
+.addbutton{
+  width:100%;
 }

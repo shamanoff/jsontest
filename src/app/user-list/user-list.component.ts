@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {DataService} from '../data-service.service';
 import {User} from '../user';
 import * as _ from 'lodash';
-import {slideTrigger} from '../slideTrigger';
+import {slideList, slideTrigger} from '../slideTrigger';
 
 
 @Component({
@@ -11,7 +11,8 @@ import {slideTrigger} from '../slideTrigger';
   styleUrls: ['./user-list.component.css'],
   providers: [DataService],
   animations: [
-    slideTrigger
+    slideTrigger,
+    slideList
   ]
 
 })
