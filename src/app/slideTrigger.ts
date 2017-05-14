@@ -1,14 +1,25 @@
-import {animate, style, transition, trigger} from '@angular/animations';
+import {animate, style, transition, trigger, state} from '@angular/animations';
 
 export const slideTrigger = trigger('slideDown', [
-transition(':enter', [
+  state('default', style({
+  })),
+  state('open', style({
+  })),
+transition('default => open', [
   style({
     transform: 'translateY(-100%)'
   }),
-  animate('2000ms ease-out',
+  animate('1000ms ease-in',
   style({
     transform: 'translateY(0)'
   })
   )
-])
+]),
+  transition('open => default',
+    animate(1000,
+      style({
+        transform: 'translateY(-100%)'
+      })
+    )
+  )
 ]);

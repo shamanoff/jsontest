@@ -36,8 +36,8 @@
   </div>
 </nav>
 
-<div class="adding " [class.hidden]="isOpen" @slideDown>
-  <div class="row ">
+<div class="adding " [class.hidden]="isOpen" [@slideDown]="isOpen ? 'default' : 'open'">
+  <div class="row " >
 
   <div class="small-11 columns">
     <h2>Add New User</h2>
